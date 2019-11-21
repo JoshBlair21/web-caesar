@@ -30,7 +30,7 @@ form = """
       Number of times you want to rotate characters:<input type="text" name="rot" value="0"/>
       <br>
       <br>
-      Enter your secret message: <textarea name="text">{0}</textarea>
+      <textarea name="text">{0}</textarea>
       <input type="submit" value="Encrypt">
 """
 
@@ -44,7 +44,7 @@ def encrypt():
     rot = int(request.form["rot"])
     text = request.form["text"]
     encrypted_text = rotate_string(text, rot)
-    return "<h1>" + encrypted_text + "</h1>"
+    return form.format(encrypted_text)
 
 
 app.run()
